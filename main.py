@@ -11,14 +11,26 @@ while True:
             file.writelines(todos)
             file.close()
         case 'edit':
+            file = open("files/todos.txt", "r")
+            todos = file.readlines()
+            file.close()
             print("Your todos are:", todos)
             index = int(input("Enter index to edit:"))
             new_todo = input("Enter new todo:").title()
             todos[index] = new_todo
+            file = open("files/todos.txt", "w")
+            file.writelines(todos)
+            file.close()
         case 'del':
+            file = open("files/todos.txt", "r")
+            todos = file.readlines()
+            file.close()
             print("Your todos are:", todos)
             index = int(input("Enter index to delete:"))
             todos.pop(index)
+            file = open("files/todos.txt", "w")
+            file.writelines(todos)
+            file.close()
         case 'show' | 'display':
             print("Your todos are:")
             file_lines = open("files/todos.txt", "r").readlines()
